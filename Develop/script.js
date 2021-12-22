@@ -36,7 +36,7 @@ function generatePassword(){
   var num = confirm ("Press yes to include NUMBERS in your password, otherwise please press cancel");
 
   //If user pressed cancel on all the criteria he will have to choose again
-  while(specialchar=== false && lowerchar === false && upperchar=== false && num===false){
+  while(!specialchar && !lowerchar && !upperchar && !num){
   alert("Please Try again, Pasword must have at least one of the previous criteria");
   var specialchar = confirm ("Press yes to include SPECIAL CHARACTERS in your password, otherwise please press cancel");
   var lowerchar = confirm ("Press yes to include LOWER CASE CHARACTERS in your password, otherwise please press cancel");
@@ -44,6 +44,22 @@ function generatePassword(){
   var num = confirm ("Press yes to include NUMBERS in your password, otherwise please press cancel");
 }
  }
+
+var chosenpass = []
+
+if(specialchar){
+  chosenpass = chosenpass.concat(specialchar);
+}
+if(lowerchar){
+  chosenpass = chosenpass.concat(lowerchar);
+}
+if(upperchar){
+  chosenpass = chosenpass.concat(upperchar);
+}
+if(num){
+  chosenpass = chosenpass.concat(num);
+}
+
 
 
 
