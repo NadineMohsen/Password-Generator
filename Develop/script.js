@@ -35,7 +35,7 @@ function generatePassword(){
   var num = confirm ("Press yes to include NUMBERS in your password, otherwise please press cancel");
 }
 
-
+//All chosen criteria will merge into 1 array
 var chosenpass = []
 
 if(specialchar){
@@ -52,14 +52,13 @@ if(num){
 }
 console.log(chosenpass);
 
+//The password will be random characters depending on the length and chosen criteria
 var thepassword = "";
 for (var i=0; i<length ; i++){
   thepassword= thepassword + chosenpass[Math.floor(Math.random() * chosenpass.length)];
   console.log(thepassword);
 }
-
 return thepassword;
-
 }
 
 // Write password to the #password input
