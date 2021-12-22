@@ -1,20 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 // //arrays for each criteria
-var number = [0,1,2,3,4,5,6,7,8,9];
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacter = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var lowerCharacter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -43,34 +34,38 @@ function generatePassword(){
   var upperchar = confirm ("Press yes to include UPPER CASE CHARACTERS in your password, otherwise please press cancel");
   var num = confirm ("Press yes to include NUMBERS in your password, otherwise please press cancel");
 }
- }
+
 
 var chosenpass = []
 
 if(specialchar){
-  chosenpass = chosenpass.concat(specialchar);
+  chosenpass = chosenpass.concat(specialCharacter);
 }
 if(lowerchar){
-  chosenpass = chosenpass.concat(lowerchar);
+  chosenpass = chosenpass.concat(lowerCharacter);
 }
 if(upperchar){
-  chosenpass = chosenpass.concat(upperchar);
+  chosenpass = chosenpass.concat(upperCharacter);
 }
 if(num){
-  chosenpass = chosenpass.concat(num);
+  chosenpass = chosenpass.concat(number);
+}
+console.log(chosenpass);
+
+var thepassword = "";
+for (var i=0; i<length ; i++){
+  thepassword= thepassword + chosenpass[Math.floor(Math.random() * chosenpass.length)];
+  console.log(thepassword);
 }
 
+return thepassword;
 
+}
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-
-
-
-
-
-
-
-
-
-
-
+  passwordText.value = password;
+}
